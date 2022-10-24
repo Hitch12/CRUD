@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/all.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>CRAD System</title>
+  </head>
+  <body>
+    <div class="home">
+      <div class="container-md py-5">
+
+        <div class="form mx-5 text-center p-3">
+          <h1 class="mt-2 mb-4 fw-bold">CRAD System</h1>
+          <form class="">
+
+            <div class="d-flex">
+                <input id="addProductInput" type="text" placeholder="Add product" class="form-control my-2 me-2 w-75" />
+                <input id="countProductInput" type="number" placeholder="Count" class="form-control my-2 w-25" />     
+            </div>
+            <div class="d-flex">
+                <input id="priceInput" type="number" placeholder="Price" class="form-control w-75 my-2 me-2" />
+                <input id="totalPriceInput" class="form-control my-2 w-25" type="text" value="Total Price" aria-label="Disabled input example" disabled readonly>
+            </div>
+            <select id="categoryInput" class="form-select form-select-lg mb-3 my-2" aria-label=".form-select-lg example">
+                <option value="phone">Phone</option>
+                <option value="TV">TV</option>
+                <option value="laptop">Laptop</option>
+                <option value="PC">PC</option>
+            </select>
+            <button class="btn btn-primary d-block" type="button" id="btnAddProduct">Add Product</button>
+            <button class="btn btn-outline-primary d-none" type="button" id="updateProduct">Update Product</button>
+           </form>
+        </div>
+
+        <div class="displayTaple  my-4 p-3">
+          <div id="deleteAll" class="text-center"></div>
+          <input id="searchInput" type="text" placeholder="Search" class="form-control w-75 d-block mx-auto mb-3">
+            <table class="table table-striped text-black">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Count</th>
+                        <th>Total</th>
+                        <th>Category</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+
+
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
