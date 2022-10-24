@@ -50,9 +50,8 @@ function addProduct() {
     localStorage.setItem("productList", JSON.stringify(productList));
     display();
     clearProduct();
-  }
-  else{
-    alert('Validation Error')
+  } else {
+    alert("Validation Error");
   }
 }
 btnAddProduct.addEventListener("click", addProduct);
@@ -118,40 +117,39 @@ function deleteAll() {
 //---------------------------- update --------------------------------
 
 function update(index) {
+  addProductInput.value = productList[index].name;
+  priceInput.value = productList[index].price;
+  countProductInput.value = productList[index].count;
+  categoryInput.value = productList[index].category;
+  idSelect = index;
+  btnAddProduct.classList.replace("d-block", "d-none");
+  updateProduct.classList.replace("d-none", "d-block");
+  mood = "cannot delete";
+  scroll({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+updateProduct.addEventListener("click", function () {
   if (
     validateProductNameInput() &&
     validateProductCountInput() &&
     validateProductPriceInput() &&
     validateProductCategoryInput()
   ) {
-    addProductInput.value = productList[index].name;
-    priceInput.value = productList[index].price;
-    countProductInput.value = productList[index].count;
-    categoryInput.value = productList[index].category;
-    idSelect = index;
-    btnAddProduct.classList.replace("d-block", "d-none");
-    updateProduct.classList.replace("d-none", "d-block");
-    mood = "cannot delete";
-    scroll({
-      top: 0,
-      behavior: "smooth",
-    });
+    productList[idSelect].name = addProductInput.value;
+    productList[idSelect].price = priceInput.value;
+    productList[idSelect].count = countProductInput.value;
+    productList[idSelect].category = categoryInput.value;
+    localStorage.setItem("productList", JSON.stringify(productList));
+    display();
+    btnAddProduct.classList.replace("d-none", "d-block");
+    updateProduct.classList.replace("d-block", "d-none");
+    mood = "can delete";
+    clearProduct();
+  } else {
+    alert("Validation Error");
   }
-  else{
-    alert('Validation Error')
-  }
-}
-updateProduct.addEventListener("click", function () {
-  productList[idSelect].name = addProductInput.value;
-  productList[idSelect].price = priceInput.value;
-  productList[idSelect].count = countProductInput.value;
-  productList[idSelect].category = categoryInput.value;
-  localStorage.setItem("productList", JSON.stringify(productList));
-  display();
-  btnAddProduct.classList.replace("d-none", "d-block");
-  updateProduct.classList.replace("d-block", "d-none");
-  mood = "can delete";
-  clearProduct();
 });
 
 //---------------------------- search --------------------------------
