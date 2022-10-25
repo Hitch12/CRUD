@@ -3,5 +3,8 @@
 
 }
 .form{
-    background: #eee;
+    background: #222;
+}
+.home{
+    background: #333 !important;
 }
